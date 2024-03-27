@@ -7,7 +7,7 @@ inpaint_engine = 'v1'
 
 
 class Config():
-    fooocus_host = 'http://127.0.0.1:8888'
+    btgen_host = 'http://127.0.0.1:8888'
 
     text2img = '/v1/generation/text-to-image'
     img_upscale = '/v2/generation/image-upscale-vary'
@@ -69,7 +69,7 @@ def upscale_vary(image, params=upscale_params) -> dict:
     """
     params["input_image"] = image
     data = json.dumps(params)
-    response = requests.post(url=f"{cfg.fooocus_host}{cfg.img_upscale}",
+    response = requests.post(url=f"{cfg.btgen_host}{cfg.img_upscale}",
                              data=data,
                              headers=headers,
                              timeout=300)
@@ -85,7 +85,7 @@ def inpaint_outpaint(input_image: str, input_mask: str = None, params=inpaint_pa
     params["outpaint_selections"] = ["Left", "Right"]
     params["prompt"] = "cat"
     data = json.dumps(params)
-    response = requests.post(url=f"{cfg.fooocus_host}{cfg.inpaint_outpaint}",
+    response = requests.post(url=f"{cfg.btgen_host}{cfg.inpaint_outpaint}",
                              data=data,
                              headers=headers,
                              timeout=300)
@@ -98,7 +98,7 @@ def image_prompt(img_prompt: list, params: dict) -> dict:
     """
     params["image_prompts"] = img_prompt
     data = json.dumps(params)
-    response = requests.post(url=f"{cfg.fooocus_host}{cfg.img_prompt}",
+    response = requests.post(url=f"{cfg.btgen_host}{cfg.img_prompt}",
                              data=data,
                              headers=headers,
                              timeout=300)
@@ -114,7 +114,7 @@ def image_prompt_with_inpaint(img_prompt: list, input_image: str, input_mask: st
     params["input_mask"] = input_mask
     params["outpaint_selections"] = ["Left", "Right"]
     data = json.dumps(params)
-    response = requests.post(url=f"{cfg.fooocus_host}{cfg.img_prompt}",
+    response = requests.post(url=f"{cfg.btgen_host}{cfg.img_prompt}",
                              data=data,
                              headers=headers,
                              timeout=300)

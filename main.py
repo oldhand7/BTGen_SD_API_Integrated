@@ -217,11 +217,7 @@ def is_installed(package):
 #     for file_name, url in vae_approx_filenames:
 #         load_file_from_url(url=url, model_dir=vae_approx_path, file_name=file_name)
 
-#     load_file_from_url(
-#         url='https://huggingface.co/lllyasviel/misc/resolve/main/fooocus_expansion.bin',
-#         model_dir=btgen_expansion_path,
-#         file_name='pytorch_model.bin'
-#     )
+
 
 
 def install_dependents(args):

@@ -1047,7 +1047,7 @@
         "/v1/engines/styles": {
             "get": {
                 "summary": "All Styles",
-                "description": "Get all legal Fooocus styles",
+                "description": "Get all legal BTGen styles",
                 "operationId": "all_styles_v1_engines_styles_get",
                 "responses": {
                     "200": {
@@ -1508,7 +1508,7 @@
                         },
                         "type": "array",
                         "title": "Style Selections",
-                        "description": "Fooocus style selections, seperated by comma",
+                        "description": " style selections, seperated by comma",
                         "default": [
                             "Fooocus V2",
                             "Fooocus Enhance",
@@ -1867,7 +1867,7 @@
                         },
                         "type": "array",
                         "title": "Style Selections",
-                        "description": "Fooocus style selections, seperated by comma",
+                        "description": " style selections, seperated by comma",
                         "default": [
                             "Fooocus V2",
                             "Fooocus Enhance",
@@ -2015,7 +2015,7 @@
                         },
                         "type": "array",
                         "title": "Style Selections",
-                        "description": "Fooocus style selections, seperated by comma",
+                        "description": " style selections, seperated by comma",
                         "default": [
                             "Fooocus V2",
                             "Fooocus Enhance",

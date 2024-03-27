@@ -96,7 +96,6 @@ def process_generate(async_task: QueueTask):
             return random.randint(constants.MIN_SEED, constants.MAX_SEED)
         
     def progressbar(_, number, text):
-        print(f'[Fooocus] {text}')
         outputs.append(['preview', (number, text, None)])
 
     def yield_result(_, imgs, tasks):
@@ -175,7 +174,6 @@ def process_generate(async_task: QueueTask):
             inpaint_input_image['mask'] = HWC3(inpaint_input_image['mask'])
             inpaint_mask_image_upload = inpaint_input_image['mask']
 
-        # Fooocus async_worker.py code start
 
         outpaint_selections = [o.lower() for o in outpaint_selections]
         base_model_additional_loras = []
@@ -453,7 +451,7 @@ def process_generate(async_task: QueueTask):
 
             if use_expansion:
                 for i, t in enumerate(tasks):
-                    progressbar(async_task, 5, f'Preparing Fooocus text #{i + 1} ...')
+                    progressbar(async_task, 5, f'Preparing BTGen text #{i + 1} ...')
                     expansion = pipeline.final_expansion(t['task_prompt'], t['task_seed'])
                     t['expansion'] = expansion
                     t['positive'] = copy.deepcopy(t['positive']) + [expansion]  # Deep copy.
@@ -851,7 +849,6 @@ def process_generate(async_task: QueueTask):
                     d.append(('Version', 'v0.0.1'))
                     log(x, d)
                 
-                # Fooocus async_worker.py code end
                 
                 results += imgs
             except model_management.InterruptProcessingException as e:
